@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uki Sya | Portfolio & CV</title>
+    <style>
+        /* Modern Minimalist Reset & Typography */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            color: #333;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Fixed Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: #1a1a1a;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        /* Parallax Sections Setup */
+        section {
+            min-height: 100vh;
+            padding: 100px 10vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        /* Section 1: Passion (Dark Minimalist) */
+        #passion {
+            background-color: #121212;
+            background-image: radial-gradient(circle at center, #2a2a2a 0%, #121212 100%);
+            color: #ffffff;
+        }
+        
+        #passion h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+        
+        #passion h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-weight: 300;
+        }
+
+        /* Section 2: Journey (Light Clean) */
+        #journey {
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+        }
+
+        .timeline {
+            margin-top: 50px;
+            border-left: 2px solid #e0e0e0;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1a1a1a;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Section 3: Highlight (Deep Slate Parallax-feel) */
+        #highlight {
+            background-color: #2c3e50;
+            background-image: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+            color: #ffffff;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Section 4: Exhibit (Warm Silver) */
+        #exhibit {
+            background-color: #e9ecef;
+            color: #212529;
+        }
+
+        .exhibit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .exhibit-category {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .exhibit-category h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #212529;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: #f1f3f5;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #passion h1 {
+                font-size: 3rem;
+                margin-top: 60px;
+            }
+
+            .skills-grid, .exhibit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 120px 5vw 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Uki Sya</div>
+        <div class="nav-links">
+            <a href="#passion">Passion</a>
+            <a href="#journey">Journey</a>
+            <a href="#highlight">Highlight</a>
+            <a href="#exhibit">Exhibit</a>
+        </div>
+    </nav>
+
+    <!-- Section 1: Passion -->
+    <section id="passion">
+        <div class="content-container">
+            <h1>Uki Sya</h1>
+            <h3>Senior Graphic Designer & Creative Lead</h3>
+            <p>Based in Jakarta, Indonesia. Over 15 years of experience blending creative direction, graphic design, and broadcast television production. I thrive at the intersection of visual layout, prepress technical precision, and interactive digital experiences.</p>
+            
+            <div class="skills-grid">
+                <div>
+                    <h4 style="margin-bottom: 15px; font-size: 1.2rem;">Core Soft Skills</h4>
+                    <ul class="skills-list">
+                        <li>Creative Direction & Conceptualization</li>
+                        <li>Technical Troubleshooting & Problem Solving</li>
+                        <li>Project Management & Adaptability</li>
+                        <li>Cross-functional Team Leadership</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 15px; font-size: 1.2rem;">Select Experience Focus</h4>
+                    <ul class="skills-list">
+                        <li>National Television Broadcast Production</li>
+                        <li>Tabletop Game Mechanics & Layout Design</li>
+                        <li>Web Utilities & Interactive Overlay Development</li>
+                        <li>Local AI Software & Pipeline Configuration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Journey -->
+    <section id="journey">
+        <div class="content-container">
+            <h2>Journey</h2>
+            <p>A timeline of my professional work and educational background.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Current / Recent</div>
+                    <div class="timeline-title">Senior Creative Lead & Broadcast Production</div>
+                    <p>Directing multi-camera video production setups, live streaming workflows via OBS Studio/YoloBox, and managing complex prepress requirements for high-stakes visual projects.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Over 15 Years Experience</div>
+                    <div class="timeline-title">Graphic Design & Digital Development</div>
+                    <p>Executing professional design using Figma, Affinity, Adobe CC, and Scribus. Building custom mobile and web utilities leveraging HTML, CSS, JavaScript, and Kotlin.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">[Year - Year]</div>
+                    <div class="timeline-title">[Degree/University Name]</div>
+                    <p>[Brief description of your studies, major, or relevant academic highlights that shaped your design foundation.]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Highlight -->
+    <section id="highlight">
+        <div class="content-container">
+            <h2>Highlight</h2>
+            <p>A selection of custom web applications and interactive projects.</p>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h4>ZonaKepo</h4>
+                    <p>Developed and published interactive web utilities and custom generators hosted seamlessly on GitHub Pages.</p>
+                </div>
+                <div class="project-card">
+                    <h4>Live Archery Scoreboard</h4>
+                    <p>Designed a real-time, modular HTML/JS live match scoreboard integrated with OBS Studio and Firebase Realtime Database for tournament broadcasting.</p>
+                </div>
+                <div class="project-card">
+                    <h4>BTR-Vibe & Game Design</h4>
+                    <p>Conceptualized custom tabletop game mechanics, rule summaries, and comprehensive layouts for card games including binturong-themed projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Exhibit -->
+    <section id="exhibit">
+        <div class="content-container">
+            <h2>Exhibit</h2>
+            <p>Showcasing my technical capabilities across print design and animation video pipelines.</p>
+            
+            <div class="exhibit-grid">
+                <div class="exhibit-category">
+                    <h4>Print & Layout Design</h4>
+                    <p>Specialized in prepress technical requirements, precise container settings, and color palettes for physical production, including extensive tabletop card game assets.</p>
+                    <div class="tag-container">
+                        <span class="tag">Adobe Illustrator</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Scribus</span>
+                        <span class="tag">Affinity Suite</span>
+                        <span class="tag">InDesign</span>
+                    </div>
+                </div>
+                <div class="exhibit-category">
+                    <h4>Animation & Video</h4>
+                    <p>Expertise in motion graphics, live broadcast graphic overlays, and evaluating multi-cam/PTZ setups for seamless streaming and national television standards.</p>
+                    <div class="tag-container">
+                        <span class="tag">After Effects</span>
+                        <span class="tag">OBS Studio</span>
+                        <span class="tag">Live Streaming</span>
+                        <span class="tag">ComfyUI / Local AI</span>
+                        <span class="tag">YoloBox</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
